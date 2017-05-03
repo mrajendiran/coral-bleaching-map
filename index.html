@@ -1,173 +1,19 @@
 <!DOCTYPE html>
-<meta charset="utf-8">
-<body>
-  <script src="http://d3js.org/d3.v3.min.js"></script>
-  <script src="http://d3js.org/topojson.v1.min.js"></script>
-  <script src="http://datamaps.github.io/scripts/datamaps.world.min.js?v=1"></script>
-  <style>
-    body {
-      background-color: #BBD3E2;
-    }
-</style>
-  <h2>Coral Bleaching Map</h2>
-  <div id="container1" style="margin: 0 auto"></div>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
+    <link href="css/coral.css" rel="stylesheet" type="text/css">
+    <script src="https://d3js.org/d3.v3.min.js"></script>
+    <script src="https://d3js.org/topojson.v1.min.js"></script>
+    <script src="https://datamaps.github.io/scripts/datamaps.world.js"></script>
 
+    <script src="js/coral.js"></script>
 
-  <script>
-
-    d3.csv("data/coralbleach_data.csv", function(error, data) {
-      data.forEach(function(d) {
-        d.LAT  = +d.LAT;
-        d.LON  = +d.LON;
-        d.YEAR = + d.YEAR;
-      });
-
-       //basic map config with custom fills, mercator projection
-      var map = new Datamap({
-        scope: 'world',
-        element: document.getElementById('container1'),
-        projection: 'mercator',
-        height: 500,
-        responsive: true,
-        fills: {
-          defaultFill: '#004F57',
-          bubblecolor: 'rgba(224,0,0,0.9)'
-        },
-        geographyConfig: {
-          highlightFillColor: '#243840'
-        },
-        data: {
-          }
-
-      });
-
-   var bubble_array = [];
-
-   function getBubble(year, country, code, lat, lon, severity, remarks){
-     var bubble = {
-         year: year,
-         country: country,
-         code: code,
-         latitude: lat,
-         longitude: lon,
-         severity: severity,
-         remarks: remarks,
-         borderWidth: 0.5,
-         borderOpacity: 1,
-         borderColor: '#FFFFFF',
-         popupOnHover: true, // True to show the popup while hovering
-         radius: 5,
-         fillKey: 'bubblecolor',
-         fillOpacity: 0.5,
-         animate: true,
-         highlightOnHover: true,
-         highlightFillColor: '#FC8D59',
-         highlightBorderColor: 'rgba(250, 15, 160, 0.2)',
-         highlightBorderWidth: 2,
-         highlightBorderOpacity: 1,
-         highlightFillOpacity: 0.85,
-         exitDelay: 100, // Milliseconds
-     }
-     bubble_array.push(bubble);
-     return bubble;
-    }
-
-    data.forEach(function(d) {
-      getBubble(d.YEAR, d.COUNTRY, d.CODE, d.LAT, d.LON, d.BLEACHING_SEVERITY, d.REMARKS)
-    });
-
-    console.log(bubble_array[1]);
-
-       //bubbles, custom popup on hover template
-     map.bubbles(bubble_array, {
-       popupTemplate: function (geo, data) {
-            return ['<div class="hoverinfo">' +
-            'YEAR: ' + data.year,
-            '<br/>COUNTRY: ' +  data.country,
-            '<br/>SEVERITY: ' +  data.severity,
-            '<br/>REMARKS: ' + data.remarks + '',
-            '</div>'].join('');
-            console.log(data);
-       }
-     });
-   });
-  </script>
-</body>
+  </head>
+  <body>
+    <div id="mapbody"></div>
 
 
 
-
-
-<!-- <!DOCTYPE html>
-// <meta charset="utf-8">
-// <style>
-// path {
-//   stroke: black;
-//   stroke-width: 0.25px;
-//   fill: grey;
-// }
-// circle {
-//   stroke: black;
-//   stroke-width: 0.25px;
-//   fill: red;
-//   opacity: 0.1;
-// }
-// </style>
-// <body>
-// <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-// <script src="https://d3js.org/d3.v3.js"></script>
-// <script src="http://d3js.org/topojson.v0.min.js"></script>
-// <script>
-// var projection = d3.geo.mercator()
-//     .center([0, 5 ])
-//     .scale(150)
-//     .rotate([-180,0]);
-//
-// var svg = d3.select("body").append("svg")
-//     .attr("width", 1000)
-//     .attr("height", 1000);
-//
-// var path = d3.geo.path()
-//     .projection(projection);
-//
-// var g = svg.append("g");
-//
-//
-// // load and display the World
-// d3.json("https://gist.githubusercontent.com/d3noob/5193723/raw/world-110m2.json",
-// function(error, topology) {
-//     g.selectAll("path")
-//       .data(topojson.object(topology, topology.objects.countries)
-//           .geometries)
-//     .enter()
-//       .append("path")
-//       .attr("d", path)
-//
-//       d3.csv("data/CoralBleaching.csv", function(error, data) {
-//         g.selectAll("circle")
-//         .data(data)
-//         .enter()
-//         .append("circle")
-//         .attr("cx", function(d) {
-//               return projection([d.LON, d.LAT])[0];
-//             })
-//             .attr("cy", function(d) {
-//               return projection([d.LON, d.LAT])[1];
-//             })
-//             .attr("r", 3)
-//             });
-//     });
-//
-// // var zoom = d3.behavior.zoom()
-// //     .on("zoom",function() {
-// //         g.attr("transform","translate("+
-// //             d3.event.translate.join(",")+")scale("+d3.event.scale+")");
-// //         g.selectAll("path")
-// //             .attr("d", path.projection(projection));
-// // });
-//
-// //svg.call(zoom)
-//
-// </script>
-// </body>
-// </html> -->
+  </body>
+</html>

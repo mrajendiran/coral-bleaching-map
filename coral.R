@@ -58,12 +58,14 @@ country_bin <- function(country_code) {
 
 # filter columns and mutate country code to just 3 characters
 bleaching_data %>% 
-  select(YEAR, COUNTRY_CODE, LOCATION, LAT, LON, BLEACHING_SEVERITY, REMARKS, SOURCE) %>% 
-  mutate(CODE = country_bin(COUNTRY_CODE)) -> bleaching
+  select(YEAR, COUNTRY, COUNTRY_CODE, LOCATION, LAT, LON, BLEACHING_SEVERITY, REMARKS, SOURCE) %>% 
+  mutate(CODE = country_bin(COUNTRY_CODE)) %>%
+  filter(LAT > 100) %>% 
+  select(-COUNTRY_CODE) -> bleaching
 # NAs: remarks (3103); location(123)
 
 # write to csv
-bleaching  <- write.csv(bleaching, "data/bleachingdata.csv", row.names = FALSE)
+write.csv(bleaching, "data/coralbleach_data.csv", row.names = FALSE)
 
 
 

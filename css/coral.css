@@ -1,0 +1,8 @@
+body {
+  overflow: hidden;
+}
+
+#mapbody {
+  margin: 0 auto;
+  position: absolute; width: 98%; height: 98%
+}

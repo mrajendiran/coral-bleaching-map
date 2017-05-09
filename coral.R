@@ -60,13 +60,15 @@ country_bin <- function(country_code) {
 bleaching_data %>% 
   select(YEAR, COUNTRY, COUNTRY_CODE, LOCATION, LAT, LON, BLEACHING_SEVERITY, REMARKS, SOURCE) %>% 
   mutate(CODE = country_bin(COUNTRY_CODE)) %>%
-  filter(LAT > 100) %>% 
+  filter(abs(LAT) < 200) %>% 
+  filter(abs(LON) < 200) %>%
   select(-COUNTRY_CODE) -> bleaching
 # NAs: remarks (3103); location(123)
 
-# write to csv
-write.csv(bleaching, "data/coralbleach_data.csv", row.names = FALSE)
+# create csvs for each year
+years <- levels(bleaching$YEAR)
 
-
-
+for (i in seq(1:length(years))) {
+  write.csv(bleaching %>% filter(YEAR == years[i]), paste("data/bleaching_data_", years[i], ".csv", sep=""), row.names = FALSE)
+}
 

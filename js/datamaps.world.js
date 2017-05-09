@@ -41,9 +41,9 @@
         fillOpacity: 0.75,
         animate: true,
         highlightOnHover: true,
-        highlightFillColor: '#156ba8',
-        highlightBorderColor: 'rgba(21, 107, 168, 0.5)',
-        highlightBorderWidth: 30,
+        highlightFillColor: false,
+        highlightBorderColor: 'rgba(143, 147, 147, 1)',
+        highlightBorderWidth: 3,
         highlightFillOpacity: 1,
         exitDelay: 100
     },

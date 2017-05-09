@@ -56,19 +56,46 @@ country_bin <- function(country_code) {
     })
 }
 
-# filter columns and mutate country code to just 3 characters
+# make severity codes consistent
+severity_bin <- function(severity) {
+  severity %>%
+    map_chr(function(code) {
+      if (grepl("Low", code)) {
+        return("LOW")
+      }
+      if (grepl("Medium", code)) {
+        return("MEDIUM")
+      }
+      if (grepl("No Bleaching", code)) {
+        return("NONE")
+      }
+      if (grepl("Severity Unknown", code)) {
+        return("UNKNOWN")
+      }
+      code
+    })
+}
+
+# filter columns and mutate country code/severity
 bleaching_data %>% 
+  filter(!grepl("West Dog",LOCATION)) %>% 
   select(YEAR, COUNTRY, COUNTRY_CODE, LOCATION, LAT, LON, BLEACHING_SEVERITY, REMARKS, SOURCE) %>% 
   mutate(CODE = country_bin(COUNTRY_CODE)) %>%
+  mutate(SEVERITY = severity_bin(BLEACHING_SEVERITY)) %>% 
   filter(abs(LAT) < 200) %>% 
   filter(abs(LON) < 200) %>%
-  select(-COUNTRY_CODE) -> bleaching
+  select(-COUNTRY_CODE, -BLEACHING_SEVERITY) -> bleaching
 # NAs: remarks (3103); location(123)
 
 # create csvs for each year
-years <- levels(bleaching$YEAR)
-
-for (i in seq(1:length(years))) {
-  write.csv(bleaching %>% filter(YEAR == years[i]), paste("data/bleaching_data_", years[i], ".csv", sep=""), row.names = FALSE)
-}
+write.csv(bleaching %>% filter(grepl("196", YEAR)), "data/clean/bleaching_data1960.csv", row.names = FALSE)
+write.csv(bleaching %>% filter(grepl("196|197", YEAR)), "data/clean/bleaching_data1970.csv", row.names = FALSE)
+write.csv(bleaching %>% filter(grepl("196|197|198", YEAR)), "data/clean/bleaching_data1980.csv", row.names = FALSE)
+write.csv(bleaching %>% filter(grepl("196|197|198|199", YEAR)), "data/clean/bleaching_data1990.csv", row.names = FALSE)
+write.csv(bleaching %>% filter(grepl("196|197|198|199|200", YEAR)), "data/clean/bleaching_data2000.csv", row.names = FALSE)
+write.csv(bleaching %>% filter(grepl("196|197|198|199|200|201", YEAR)), "data/clean/bleaching_data2010.csv", row.names = FALSE)
+# create cvs for severity levels
+write.csv(bleaching %>% filter(SEVERITY == "HIGH"), "data/clean/bleaching_data1.csv", row.names = FALSE)
+write.csv(bleaching %>% filter(SEVERITY == "MEDIUM"), "data/clean/bleaching_data2.csv", row.names = FALSE)
+write.csv(bleaching %>% filter(SEVERITY == "LOW"), "data/clean/bleaching_data3.csv", row.names = FALSE)
 

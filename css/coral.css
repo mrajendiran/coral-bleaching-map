@@ -2,6 +2,7 @@ body {
   overflow: hidden;
   background-color: #353738;
 }
+
 #mapbody {
   position: relative;
   left: 50%;
@@ -26,6 +27,7 @@ svg.datamap {
   position: absolute; width: 100%; height: 100%;
 }
 
-svg buttonsixty:hover #instagram { 
-  fill: #111;
+svg.svgContainer {
+    position:fixed;
+    bottom:0;
 }

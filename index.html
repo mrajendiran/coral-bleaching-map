@@ -18,7 +18,6 @@
     <button id="2010" onclick="updateMap(2010)">2010s</button>
     <button id="all" onclick="updateMap(0)">All</button> -->
     <div id="mapbody">
-    </div>
   </body>
 
   <script>
@@ -41,8 +40,9 @@
 
     // YEAR BUTTONS
     var svgContainer = d3.select("body").append("svg")
-      .attr("width", 1000)
-      .attr("height", 1000);
+      .attr ("class", "svgContainer")
+      .attr("width", "100%")
+      .attr("height", "40%");
 
     //All button
     var buttonall = svgContainer.append("circle")
@@ -195,8 +195,8 @@
     // HIGH button
     var highbutton = svgContainer.append("circle")
       .attr ("class", "highbutton")
-      .attr("cx", 280)
-      .attr("cy", 880)
+      .attr("cx", "16%")
+      .attr("cy", "70%")
       .attr("r", 40)
       .attr("fill", "#e1bebe")
       .attr("stroke", "#8f9393")
@@ -208,16 +208,13 @@
         .attr("x", 259)
         .attr("y", 888)
         .text("High");
-    d3.selectAll(".highbutton")
-    .on("click", function(){updateMap(2010);})
-    .on("mouseover", function(d) {d3.select(this).style("fill", "red");})
-    .on("mouseout", function(d) {d3.select(this).style("fill", "#e1bebe");});
+
 
     // MEDIUM button
     var medbutton = svgContainer.append("circle")
       .attr ("class", "medbutton")
-      .attr("cx", 360)
-      .attr("cy", 880)
+      .attr("cx", "20.5%")
+      .attr("cy", "90%")
       .attr("r", 40)
       .attr("fill", "#e1cebe")
       .attr("stroke", "#8f9393")
@@ -229,16 +226,13 @@
         .attr("x", 337)
         .attr("y", 888)
         .text("Med");
-    d3.selectAll(".medbutton")
-    .on("click", function(){updateMap(2010);})
-    .on("mouseover", function(d) {d3.select(this).style("fill", "orange");})
-    .on("mouseout", function(d) {d3.select(this).style("fill", "#e1cebe");});
+
 
     // LOW button
     var lowbutton = svgContainer.append("circle")
       .attr ("class", "lowbutton")
-      .attr("cx", 440)
-      .attr("cy", 880)
+      .attr("cx", "25%")
+      .attr("cy", "90%")
       .attr("r", 40)
       .attr("fill", "#e1debe")
       .attr("stroke", "#8f9393")
@@ -250,10 +244,17 @@
         .attr("x", 421)
         .attr("y", 888)
         .text("Low");
-    d3.selectAll(".lowbutton")
-    .on("click", function(){updateMap(2010);})
-    .on("mouseover", function(d) {d3.select(this).style("fill", "#e8e125");})
-    .on("mouseout", function(d) {d3.select(this).style("fill", "#e1debe");});
+
+
+    // WEBSITE DESCRIPTION
+    svgContainer.append("text")
+      .style("font-size", "40px")
+      .style("fill", "#BED7E1")
+      .style("font-family", "Open Sans")
+      .style("font-weight", 900)
+      .attr("x", 790)
+      .attr("y", 790)
+      .text("Worldwide Coral Bleaching Sites");
 
   </script>
 </html>

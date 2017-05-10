@@ -21,7 +21,7 @@ function bleachMap(year) {
           borderOpacity: 1,
           borderColor: '#8f9393',
           popupOnHover: true, // True to show the popup while hovering
-          radius: 7,
+          radius: 15,
           fillKey: 'defaultFill',
           fillOpacity: 0.3,
           animate: true,
@@ -30,20 +30,34 @@ function bleachMap(year) {
           exitDelay: 100, // Milliseconds
         }
         if (bubble.severity == "HIGH"){
-          bubble.fillKey = 'highseverity',
-          bubble.fillOpacity = 0.3,
-          bubble.radius = 15
+          bubble.fillKey = 'highseverity'
         } else if (bubble.severity == "MEDIUM") {
-          bubble.fillKey = 'medseverity',
-          bubble.radius = 12
+          bubble.fillKey = 'medseverity'
         } else if (bubble.severity == "LOW") {
-          bubble.fillKey = 'lowseverity',
-          bubble.radius = 10
-        } else if (bubble.severity == "NONE") {
-          bubble.fillKey = 'noseverity'
+          bubble.fillKey = 'lowseverity'
+        } else if (bubble.severity == "Algae Disease") {
+          bubble.fillKey = 'algae',
+          bubble.radius = 30
+        } else if (bubble.severity == "Band Disease") {
+          bubble.fillKey = 'band',
+          bubble.radius = 30
+        }else if (bubble.severity == "Coral Tumors") {
+          bubble.fillKey = 'tumor',
+          bubble.radius = 30
+        }else if (bubble.severity == "Fungal/Bacterial Disease") {
+          bubble.fillKey = 'fungal',
+          bubble.radius = 30
+        }else if (bubble.severity == "Plague Disease") {
+          bubble.fillKey = 'plague',
+          bubble.radius = 30
+        }else if (bubble.severity == "Spot Disease") {
+          bubble.fillKey = 'spot',
+          bubble.radius = 30
+        }else if (bubble.severity == "Stress/Predation") {
+          bubble.fillKey = 'stress',
+          bubble.radius = 30
         } else {
-          bubble.fillKey = 'unknown',
-          bubble.fillOpacity = 0.5
+          bubble.fillKey = 'unknown'
         }
         bubble_array.push(bubble);
         return bubble;
@@ -67,7 +81,7 @@ function bleachMap(year) {
 }
 
 function diseaseMap(year) {
-  d3.csv("data/clean/disease/diseases_data" + year + ".csv", function(error, data) {
+  d3.csv("data/clean/diseases_data" + year + ".csv", function(error, data) {
       data.forEach(function(d) {
         d.LAT  = +d.LAT;
         d.LON  = +d.LON;

@@ -9,26 +9,25 @@
     <script src="js/datamaps.world.js"></script>
     <script src="js/coral.js"></script>
   </head>
-
   <body onload="bleachMap(2010)">
     <div id="mapbody"></div>
-    <div id="bleach_buttons">
-      <div id="legend">Bleaching By Year</div>
-      <input type="button" class="button button1" value="1970s">
-      <input type="button" class="button" value="1980s">
-      <input type="button" class="button" value="1990s">
-      <input type="button" class="button" value="2000s">
-      <input type="button" class="button" value="2010s">
-    </div>
     <div id="disease_buttons">
+      <div id="legend">Bleaching by Year</div>
+      <input type="button" class="bbutton button1 button70" value="1970s">
+      <input type="button" class="bbutton button80" value="1980s">
+      <input type="button" class="bbutton button90" value="1990s">
+      <input type="button" class="bbutton button00" value="2000s">
+      <input type="button" class="bbutton button10" value="2010s">
+    </div>
+    <div id="bleach_buttons">
       <div id="legend">Coral Diseases</div>
-      <input type="button" class="dbutton button1" value="Algae">
-      <input type="button" class="dbutton" value="Bands">
-      <input type="button" class="dbutton" value="Tumors">
-      <input type="button" class="dbutton" value="Fungi">
-      <input type="button" class="dbutton" value="Plague">
-      <input type="button" class="dbutton" value="Spots">
-      <input type="button" class="dbutton" value="Stress">
+      <input type="button" class="dbutton button1 buttonalgae" value="Algae">
+      <input type="button" class="dbutton buttonbands" value="Bands">
+      <input type="button" class="dbutton buttontumors" value="Tumors">
+      <input type="button" class="dbutton buttonfungi" value="Fungi">
+      <input type="button" class="dbutton buttonplague" value="Plague">
+      <input type="button" class="dbutton buttonspots" value="Spots">
+      <input type="button" class="dbutton buttonstress" value="Stress">
     </div>
     <div id="square">
       <div id="title">Coral Reef Health: Bleaching and Disease</div>
@@ -55,7 +54,7 @@
       fungal: 'rgba(96, 155, 149,0.9)',
       plague: 'rgba(21, 29, 71,0.9)',
       stress: 'rgba(160, 70, 28,0.9)',
-      unknowndisease: 'rgba(186, 177, 173,0.9)',
+      spot: 'rgba(186, 177, 173,0.9)',
     },
     geographyConfig: {
       highlightFillColor: '#000000',
@@ -65,6 +64,7 @@
       }
     });
   </script>
+  <script src="js/functions.js"></script>
 
 
 </html>

@@ -31,57 +31,43 @@ svg.datamap {
   position: fixed;
   bottom: 0;
   width: 100%;
-  height: 30%;
+  height: 15%;
 }
 
 #disease_buttons {
   position: fixed;
   bottom: 0;
   width: 100%;
-  height: 30%;
+  height: 24%;
 }
-
-
-.button {
-    height: 100px;
-    width: 100px;
-    background-color: #BED7E1;
-    border: 5px solid #8f9393;
-    border-radius: 50%;
-    color: "#353738";
-    padding: 5px 5px;
-    text-align: center;
-    font-family: "Open Sans";
-    text-decoration: none;
-    display: inline-block;
-    font-size: 30px;
-    margin-top: 2%
-}
-
-.button {
-    height: 100px;
-    width: 100px;
-    background-color: #BED7E1;
-    border: 5px solid #8f9393;
-    border-radius: 50%;
-    color: "#353738";
-    padding: 5px 5px;
-    text-align: center;
-    font-family: "Open Sans";
-    text-decoration: none;
-    display: inline-block;
-    font-size: 30px;
-}
-
 
 .button1 {
     margin-left: 0%;
 }
 
-.highlight {
-    background-color: #8DA0A8;
+.button {
+  height: 100px;
+  width: 100px;
+  background-color: #BED7E1;
+  border: 5px solid #8f9393;
+  border-radius: 50%;
+  color: "#353738";
+  padding: 5px 5px;
+  text-align: center;
+  font-family: "Open Sans";
+  text-decoration: none;
+  display: inline;
+  font-size: 30px;
+  margin-top: 5%
 }
 
+.dbutton:hover {
+    background-color: #9cb1ba;
+}
+
+.bbutton:hover {
+    background-color: #9cb1ba;
+}
 
 .dbutton {
   height: 100px;
@@ -96,7 +82,23 @@ svg.datamap {
   text-decoration: none;
   display: inline;
   font-size: 30px;
-  margin-top: 9%
+  margin-top: 0%
+}
+
+.bbutton {
+  height: 100px;
+  width: 100px;
+  background-color: #BED7E1;
+  border: 5px solid #8f9393;
+  border-radius: 50%;
+  color: "#353738";
+  padding: 5px 5px;
+  text-align: center;
+  font-family: "Open Sans";
+  text-decoration: none;
+  display: inline;
+  font-size: 30px;
+  margin-top: -10%;
 }
 
 #legend {
@@ -108,6 +110,7 @@ svg.datamap {
   color: #BED7E1;
   font-family: "Open Sans";
   font-size: 30px;
+  font-weight: bold;
 }
 
 #square {
@@ -117,14 +120,16 @@ svg.datamap {
 	height: 27%;
 	background: #353738;
   margin-left: 58%;
-  margin-bottom:1%;
+  margin-bottom:0%;
   border: 0px solid #BED7E1;
   color: #BED7E1;
   font-family: "Open Sans";
   font-size: 25px;
-
+  margin-top:2%
 }
 
 #title {
   font-size: 50px;
+  font-weight: bold;
+    margin-top:2%
 }

@@ -10,8 +10,31 @@
     <script src="js/coral.js"></script>
   </head>
 
-  <body onload="updateMap(2010)">
+  <body onload="bleachMap(2010)">
     <div id="mapbody"></div>
+    <div id="bleach_buttons">
+      <div id="legend">Bleaching By Year</div>
+      <input type="button" class="button button1" value="1970s">
+      <input type="button" class="button" value="1980s">
+      <input type="button" class="button" value="1990s">
+      <input type="button" class="button" value="2000s">
+      <input type="button" class="button" value="2010s">
+    </div>
+    <div id="disease_buttons">
+      <div id="legend">Coral Diseases</div>
+      <input type="button" class="dbutton button1" value="Algae">
+      <input type="button" class="dbutton" value="Bands">
+      <input type="button" class="dbutton" value="Tumors">
+      <input type="button" class="dbutton" value="Fungi">
+      <input type="button" class="dbutton" value="Plague">
+      <input type="button" class="dbutton" value="Spots">
+      <input type="button" class="dbutton" value="Stress">
+    </div>
+    <div id="square">
+      <div id="title">Coral Reef Health: Bleaching and Disease</div>
+      The coral reef slkdfjsldkjflkdsjfkl slkdjflksdfjlkdsfj lsdkfjlskdjflk
+      sldfkjsdlkfj lsjdf lskdjflsk flskdfj ldskfjd lkfj
+    </div>
   </body>
 
   <script>
@@ -25,7 +48,14 @@
       medseverity: 'rgba(224,97,0,0.9)',
       lowseverity: 'rgba(224,209,0,0.9)',
       noseverity: 'rgba(208,219,224,0.9)',
-      unknown: 'rgba(225, 222, 190,0.9)'
+      unknown: 'rgba(225,222,190,0.9)',
+      algae: 'rgba(38, 137, 96,0.9)',
+      band: 'rgba(116, 83, 124,0.9)',
+      tumor: 'rgba(155, 137, 96,0.9)',
+      fungal: 'rgba(96, 155, 149,0.9)',
+      plague: 'rgba(21, 29, 71,0.9)',
+      stress: 'rgba(160, 70, 28,0.9)',
+      unknowndisease: 'rgba(186, 177, 173,0.9)',
     },
     geographyConfig: {
       highlightFillColor: '#000000',
@@ -35,6 +65,6 @@
       }
     });
   </script>
-  <script src="js/functions.js"></script>
+
 
 </html>

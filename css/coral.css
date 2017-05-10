@@ -9,8 +9,8 @@ body {
   -webkit-transform: translateX(-50%);
   -ms-transform: translateX(-50%);
   transform: translateX(-50%);
-  margin-top: -20%;
-  position: absolute; width: 100%; height: 70%;
+  margin-top: -10%;
+  position: absolute; width: 100%; height: 50%;
   padding-bottom: 20%;
   border: 5px solid;
   border-color: #8f9393;
@@ -27,11 +27,104 @@ svg.datamap {
   position: absolute; width: 100%; height: 100%;
 }
 
-svg.svgContainer {
-    position:fixed;
-    bottom:0;
+#bleach_buttons {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 30%;
 }
 
-svg.svgContainer.circle {
+#disease_buttons {
   position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 30%;
+}
+
+
+.button {
+    height: 100px;
+    width: 100px;
+    background-color: #BED7E1;
+    border: 5px solid #8f9393;
+    border-radius: 50%;
+    color: "#353738";
+    padding: 5px 5px;
+    text-align: center;
+    font-family: "Open Sans";
+    text-decoration: none;
+    display: inline-block;
+    font-size: 30px;
+    margin-top: 2%
+}
+
+.button {
+    height: 100px;
+    width: 100px;
+    background-color: #BED7E1;
+    border: 5px solid #8f9393;
+    border-radius: 50%;
+    color: "#353738";
+    padding: 5px 5px;
+    text-align: center;
+    font-family: "Open Sans";
+    text-decoration: none;
+    display: inline-block;
+    font-size: 30px;
+}
+
+
+.button1 {
+    margin-left: 0%;
+}
+
+.highlight {
+    background-color: #8DA0A8;
+}
+
+
+.dbutton {
+  height: 100px;
+  width: 100px;
+  background-color: #BED7E1;
+  border: 5px solid #8f9393;
+  border-radius: 50%;
+  color: "#353738";
+  padding: 5px 5px;
+  text-align: center;
+  font-family: "Open Sans";
+  text-decoration: none;
+  display: inline;
+  font-size: 30px;
+  margin-top: 9%
+}
+
+#legend {
+  width: 200px;
+  height: 200px;
+  text-align: justify;
+  display: inline-block;
+  margin-left: 3%;
+  color: #BED7E1;
+  font-family: "Open Sans";
+  font-size: 30px;
+}
+
+#square {
+  position: fixed;
+  bottom: 0;
+	width: 38%;
+	height: 27%;
+	background: #353738;
+  margin-left: 58%;
+  margin-bottom:1%;
+  border: 0px solid #BED7E1;
+  color: #BED7E1;
+  font-family: "Open Sans";
+  font-size: 25px;
+
+}
+
+#title {
+  font-size: 50px;
 }

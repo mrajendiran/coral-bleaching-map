@@ -32,6 +32,6 @@ svg.svgContainer {
     bottom:0;
 }
 
-circle {
-  position: relative;
+svg.svgContainer.circle {
+  position: fixed;
 }

@@ -23,7 +23,7 @@ function updateMap(year) {
           popupOnHover: true, // True to show the popup while hovering
           radius: 7,
           fillKey: 'defaultFill',
-          fillOpacity: 0.5,
+          fillOpacity: 0.3,
           animate: true,
           highlightOnHover: true,
           exitDelay: 100,

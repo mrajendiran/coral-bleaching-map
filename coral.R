@@ -10,10 +10,10 @@ suppressMessages({
 })
 
 ############## load datasets ############## 
-bleaching_data   <- read.csv('data/CoralBleaching.csv', stringsAsFactors=FALSE, fileEncoding="latin1", na.strings = "")
-diseases_data  <- read.csv('data/CoralDiseases.csv', stringsAsFactors=FALSE, fileEncoding="latin1")
-protected_areas_data  <- read.csv('data/MarineProtectedAreas.csv', stringsAsFactors=FALSE, fileEncoding="latin1")
-reef_locations_data <- read.csv('data/ReefLocations.csv', stringsAsFactors=FALSE, fileEncoding="latin1")
+bleaching_data   <- read.csv('data/raw/CoralBleaching.csv', stringsAsFactors=FALSE, fileEncoding="latin1", na.strings = "")
+diseases_data  <- read.csv('data/raw/CoralDiseases.csv', stringsAsFactors=FALSE, fileEncoding="latin1")
+protected_areas_data  <- read.csv('data/raw/MarineProtectedAreas.csv', stringsAsFactors=FALSE, fileEncoding="latin1")
+reef_locations_data <- read.csv('data/raw/ReefLocations.csv', stringsAsFactors=FALSE, fileEncoding="latin1")
 
 # change country codes to 3 characters
 country_bin <- function(country_code) {

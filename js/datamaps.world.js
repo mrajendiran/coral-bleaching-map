@@ -42,7 +42,7 @@
         animate: true,
         highlightOnHover: true,
         highlightFillColor: false,
-        highlightBorderColor: 'rgba(143, 147, 147, 1)',
+        highlightBorderColor: 'rgba(53, 55, 56, 1)',
         highlightBorderWidth: 3,
         highlightFillOpacity: 1,
         exitDelay: 100

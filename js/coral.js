@@ -19,7 +19,7 @@ function bleachMap(year) {
           remarks: remarks,
           borderWidth: 0,
           borderOpacity: 1,
-          borderColor: '#8f9393',
+          borderColor: '#353738',
           popupOnHover: true, // True to show the popup while hovering
           radius: 15,
           fillKey: 'defaultFill',
@@ -37,25 +37,39 @@ function bleachMap(year) {
           bubble.fillKey = 'lowseverity'
         } else if (bubble.severity == "Algae Disease") {
           bubble.fillKey = 'algae',
-          bubble.radius = 30
+          bubble.radius = 30,
+          bubble.fillOpacity = 0.3,
+          bubble.borderWidth = 1
         } else if (bubble.severity == "Band Disease") {
           bubble.fillKey = 'band',
-          bubble.radius = 30
+          bubble.radius = 30,
+          bubble.fillOpacity = 0.1,
+          bubble.borderWidth = 1
         }else if (bubble.severity == "Coral Tumors") {
           bubble.fillKey = 'tumor',
-          bubble.radius = 30
+          bubble.radius = 30,
+          bubble.fillOpacity = 0.3,
+          bubble.borderWidth = 1
         }else if (bubble.severity == "Fungal/Bacterial Disease") {
           bubble.fillKey = 'fungal',
-          bubble.radius = 30
+          bubble.radius = 30,
+          bubble.fillOpacity = 0.1,
+          bubble.borderWidth = 1
         }else if (bubble.severity == "Plague Disease") {
           bubble.fillKey = 'plague',
-          bubble.radius = 30
+          bubble.radius = 30,
+          bubble.fillOpacity = 0.1,
+          bubble.borderWidth = 1
         }else if (bubble.severity == "Spot Disease") {
           bubble.fillKey = 'spot',
-          bubble.radius = 30
+          bubble.radius = 30,
+          bubble.fillOpacity = 0.1,
+          bubble.borderWidth = 1
         }else if (bubble.severity == "Stress/Predation") {
           bubble.fillKey = 'stress',
-          bubble.radius = 30
+          bubble.radius = 30,
+          bubble.fillOpacity = 0.5,
+          bubble.borderWidth = 1
         } else {
           bubble.fillKey = 'unknown'
         }

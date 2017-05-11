@@ -20,7 +20,7 @@
       <input type="button" class="bbutton button10" value="2010s">
     </div>
     <div id="bleach_buttons">
-      <div id="legend">Coral Diseases</div>
+      <div id="legend">Coral Diseases<br>(2010s)</div>
       <input type="button" class="dbutton button1 buttonalgae" value="Algae">
       <input type="button" class="dbutton buttonbands" value="Bands">
       <input type="button" class="dbutton buttontumors" value="Tumors">
@@ -31,8 +31,12 @@
     </div>
     <div id="square">
       <div id="title">Coral Reef Health: Bleaching and Disease</div>
-      The coral reef slkdfjsldkjflkdsjfkl slkdjflksdfjlkdsfj lsdkfjlskdjflk
-      sldfkjsdlkfj lsjdf lskdjflsk flskdfj ldskfjd lkfj
+      Coral reefs are diverse and complex ecosystems that support over 25% of all
+      marine life. Anthropogenic global warming, overfishing, and pollution have extensively
+      damaged these sensitive ecosystems,
+      with famous reefs such as the Great Barrier Reef being over 90% bleached. This visualization
+      depicts the progressively worsening deterioration of reef systems, along with insight into prevalent diseases that
+      plague these unique, yet doomed, habitats. Severity is indicated on the map with red being High (>30% bleaching), orange being Medium (>10% bleaching), and yellow being Low (less than 10% bleaching).
     </div>
   </body>
 
@@ -41,6 +45,12 @@
     scope: 'world',
     element: document.getElementById('mapbody'),
     projection: 'mercator',
+    done: function(datamap){
+    datamap.svg.call(d3.behavior.zoom().on("zoom", redraw));
+    function redraw() {
+        datamap.svg.selectAll("g").attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
+    }
+  },
     fills: {
       defaultFill: '#353738',
       highseverity: 'rgba(224,0,0,1)',
@@ -48,13 +58,13 @@
       lowseverity: 'rgba(224,209,0,0.9)',
       noseverity: 'rgba(208,219,224,0.9)',
       unknown: 'rgba(225,222,190,0.9)',
-      algae: 'rgba(38, 137, 96,0.9)',
-      band: 'rgba(116, 83, 124,0.9)',
-      tumor: 'rgba(155, 137, 96,0.9)',
-      fungal: 'rgba(96, 155, 149,0.9)',
-      plague: 'rgba(21, 29, 71,0.9)',
-      stress: 'rgba(160, 70, 28,0.9)',
-      spot: 'rgba(186, 177, 173,0.9)',
+      algae: 'rgba(58, 114, 29,0.9)',
+      band: 'rgba(105, 41, 147,0.9)',
+      tumor: 'rgba(27, 46, 114,0.9)',
+      fungal: 'rgba(76, 15, 52,0.9)',
+      plague: 'rgba(25, 115, 117,0.9)',
+      stress: 'rgba(143, 158, 193,0.9)',
+      spot: 'rgba(159, 143, 193,0.9)',
     },
     geographyConfig: {
       highlightFillColor: '#000000',

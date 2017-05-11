@@ -9,7 +9,7 @@ body {
   -webkit-transform: translateX(-50%);
   -ms-transform: translateX(-50%);
   transform: translateX(-50%);
-  margin-top: -10%;
+  margin-top: -12%;
   position: absolute; width: 100%; height: 50%;
   padding-bottom: 20%;
   border: 5px solid;
@@ -30,15 +30,38 @@ svg.datamap {
 #bleach_buttons {
   position: fixed;
   bottom: 0;
+  margin-left: 45%;
   width: 100%;
   height: 15%;
 }
 
 #disease_buttons {
   position: fixed;
+  margin-left: 45%;
   bottom: 0;
   width: 100%;
-  height: 24%;
+  height: 26%;
+}
+
+#square {
+  position: absolute;
+  bottom: 0;
+	width: 35%;
+	height: 29%;
+	background: #353738;
+  margin-bottom:0%;
+  border: 0px solid #BED7E1;
+  color: #BED7E1;
+  font-family: "Open Sans";
+  font-size: 130%;
+  margin-top:5%;
+  margin-left:3%
+}
+
+#title {
+  font-size: 170%;
+  font-weight: bold;
+  margin-top:-1%;
 }
 
 .button1 {
@@ -58,7 +81,7 @@ svg.datamap {
   text-decoration: none;
   display: inline;
   font-size: 30px;
-  margin-top: 5%
+  margin-left: 2%
 }
 
 .dbutton:hover {
@@ -70,8 +93,8 @@ svg.datamap {
 }
 
 .dbutton {
-  height: 100px;
-  width: 100px;
+  height: 90px;
+  width: 90px;
   background-color: #BED7E1;
   border: 5px solid #8f9393;
   border-radius: 50%;
@@ -81,13 +104,14 @@ svg.datamap {
   font-family: "Open Sans";
   text-decoration: none;
   display: inline;
-  font-size: 30px;
-  margin-top: 0%
+  font-size: 27px;
+  margin-top: 0%;
+  font-weight: bold;
 }
 
 .bbutton {
-  height: 100px;
-  width: 100px;
+  height: 90px;
+  width: 90px;
   background-color: #BED7E1;
   border: 5px solid #8f9393;
   border-radius: 50%;
@@ -98,7 +122,8 @@ svg.datamap {
   text-decoration: none;
   display: inline;
   font-size: 30px;
-  margin-top: -10%;
+  margin-top:  -4%;
+  font-weight: bold;
 }
 
 #legend {
@@ -106,30 +131,8 @@ svg.datamap {
   height: 200px;
   text-align: justify;
   display: inline-block;
-  margin-left: 3%;
   color: #BED7E1;
   font-family: "Open Sans";
   font-size: 30px;
   font-weight: bold;
-}
-
-#square {
-  position: fixed;
-  bottom: 0;
-	width: 38%;
-	height: 27%;
-	background: #353738;
-  margin-left: 58%;
-  margin-bottom:0%;
-  border: 0px solid #BED7E1;
-  color: #BED7E1;
-  font-family: "Open Sans";
-  font-size: 25px;
-  margin-top:2%
-}
-
-#title {
-  font-size: 50px;
-  font-weight: bold;
-    margin-top:2%
 }

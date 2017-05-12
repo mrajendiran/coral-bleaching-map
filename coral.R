@@ -162,11 +162,19 @@ diseases_data %>%
   filter(!grepl("Unknown",DISEASE)) %>% 
   select(-COUNTRY_CODE, -DISEASE_TYPE) -> diseases
 
-# create cvs for diseases
-write.csv(diseases %>% filter(grepl("196|197", YEAR)), "data/clean/diseases/diseases_data1970.csv", row.names = FALSE)
-write.csv(diseases %>% filter(grepl("196|197|198", YEAR)), "data/clean/diseases/diseases_data1980.csv", row.names = FALSE)
-write.csv(diseases %>% filter(grepl("196|197|198|199", YEAR)), "data/clean/diseases/diseases_data1990.csv", row.names = FALSE)
-write.csv(diseases %>% filter(grepl("196|197|198|199|200", YEAR)), "data/clean/diseases/diseases_data2000.csv", row.names = FALSE)
-write.csv(diseases %>% filter(grepl("196|197|198|199|200|201", YEAR)), "data/clean/diseases/diseases_data2010.csv", row.names = FALSE)
 
-levels(factor(diseases$DISEASE))
+bleaching %>% filter(grepl("196|197|198|199|200|201", YEAR)) %>% select(-LOCATION) %>% 
+  select(YEAR, LAT, LON, COUNTRY, REMARKS, CODE, SEVERITY) -> bleach
+colnames(diseases) <- c("YEAR", "LAT", "LON", "COUNTRY", "REMARKS", "CODE", "SEVERITY")
+
+
+# create cvs for diseases
+write.csv(diseases %>% filter(SEVERITY == "Algae Disease") %>% bind_rows(bleach), "data/clean/diseases_data1.csv", row.names = FALSE)
+write.csv(diseases %>% filter(SEVERITY == "Band Disease") %>% bind_rows(bleach), "data/clean/diseases_data2.csv", row.names = FALSE)
+write.csv(diseases %>% filter(SEVERITY == "Coral Tumors") %>% bind_rows(bleach), "data/clean/diseases_data3.csv", row.names = FALSE)
+write.csv(diseases %>% filter(SEVERITY == "Fungal/Bacterial Disease") %>% bind_rows(bleach), "data/clean/diseases_data4.csv", row.names = FALSE)
+write.csv(diseases %>% filter(SEVERITY == "Plague Disease") %>% bind_rows(bleach), "data/clean/diseases_data5.csv", row.names = FALSE)
+write.csv(diseases %>% filter(SEVERITY == "Spot Disease") %>% bind_rows(bleach), "data/clean/diseases_data6.csv", row.names = FALSE)
+write.csv(diseases %>% filter(SEVERITY == "Stress/Predation") %>% bind_rows(bleach), "data/clean/diseases_data7.csv", row.names = FALSE)
+
+

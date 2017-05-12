@@ -1,5 +1,5 @@
 function bleachMap(year) {
-  d3.csv("data/clean/bleach/bleaching_data" + year + ".csv", function(error, data) {
+  d3.csv("data/bleach/bleaching_data" + year + ".csv", function(error, data) {
       data.forEach(function(d) {
         d.LAT  = +d.LAT;
         d.LON  = +d.LON;
